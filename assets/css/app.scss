@@ -106,6 +106,28 @@ input[type="checkbox"] {
     accent-color: $vert;
 }
 
+// To-do lists (- [ ] … en Markdown) : pas de puce, espace entre la case et le texte
+.content ul.task-list {
+    list-style: none;
+    margin-left: 0.25em;
+}
+
+// Retrait : une ligne longue se poursuit sous le texte, pas sous la case
+.task-list-item {
+    padding-left: 1.3em;
+    text-indent: -1.3em;
+
+    ul,
+    ol {
+        text-indent: 0;
+    }
+}
+
+.task-list-item-checkbox {
+    margin-right: 0.5em;
+    vertical-align: -0.1em;
+}
+
 // ─── Navigation ───────────────────────────────────────────────────────────
 .navbar {
     background-color: $nuit;
