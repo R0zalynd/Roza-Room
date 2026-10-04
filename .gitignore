@@ -10,3 +10,6 @@ Gemfile.lock
 vendor/
 
 .DS_Store
+
+# Brouillons : fichiers gardés en local uniquement (ni publiés, ni envoyés sur GitHub)
+_brouillons/

@@ -35,6 +35,7 @@ Modèles complets dans `_templates/` (dossier non publié). Points importants :
 - Nommer le langage des blocs de code. Les blocs ` ```mermaid ` sont rendus en schéma.
 - Encadré : `{% include message.html status="is-warning" title="Attention" message="..." %}` (`is-info`, `is-success`, `is-warning`, `is-danger`).
 - Images : dans un sous-dossier du même nom que la page, noms en kebab-case descriptifs.
+- Texte et image côte à côte, dans un encadré doré (style de la description) : `<div class="box doc-meta bloc-image" markdown="1">`, puis `<div class="bloc-image-texte" markdown="1">` (texte Markdown), puis `<figure class="bloc-image-media" markdown="0"><img …></figure>`. Le `markdown="0"` est indispensable, sinon kramdown met l'image dans un `<p>` et la mise en page casse. Sur mobile, l'image passe sous le texte.
 
 ## Thème
 

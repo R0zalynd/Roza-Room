@@ -826,3 +826,47 @@ $chrono-trait: 1.5rem; // longueur du trait entre l'axe et le texte
         color: $bronze;
     }
 }
+
+// ─── Bloc texte + image côte à côte (encadré doré, comme la description) ─
+// Usage dans le Markdown :
+//   <div class="box doc-meta bloc-image" markdown="1">
+//   <div class="bloc-image-texte" markdown="1"> … texte en Markdown … </div>
+//   <figure class="bloc-image-media" markdown="0"><img src="…" alt="…"></figure>
+//   </div>
+// (markdown="0" sur la figure : sinon kramdown enveloppe l'image dans un <p>)
+.bloc-image {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+
+    .bloc-image-texte {
+        flex: 1 1 0;
+        min-width: 0;
+        align-self: center; // texte centré verticalement par rapport à l'image
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .bloc-image-media {
+        flex: 0 0 38%;
+        margin: 0;
+
+        img {
+            display: block;
+            width: 100%;
+            max-height: none;
+            margin: 0;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+
+        .bloc-image-media {
+            flex-basis: auto;
+            width: 100%;
+        }
+    }
+}
