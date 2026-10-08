@@ -29,3 +29,21 @@
     await mermaid.run();
 </script>
 {%- endif -%}
+
+{%- comment -%}
+  Formules LaTeX (KaTeX) : en Markdown, $$…$$ dans une phrase = formule en ligne,
+  $$…$$ seul sur sa ligne = formule centrée. kramdown les convertit en \(…\) et \[…\].
+  Le script n'est chargé que si la page contient une formule.
+{%- endcomment -%}
+{%- if content contains '\(' or content contains '\[' -%}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.querySelector('main') || document.body, {
+        delimiters: [
+            { left: '\\[', right: '\\]', display: true },
+            { left: '\\(', right: '\\)', display: false }
+        ],
+        throwOnError: false
+    });"></script>
+{%- endif -%}

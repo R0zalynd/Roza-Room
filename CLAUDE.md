@@ -33,9 +33,11 @@ Modèles complets dans `_templates/` (dossier non publié). Points importants :
 - Le `title` du front matter fait le H1 (dans le hero) : le corps commence à `##`.
 - Titres d'étapes : `## Étape 1 : Câbler l'écran`.
 - Nommer le langage des blocs de code. Les blocs ` ```mermaid ` sont rendus en schéma.
+- Formules en syntaxe LaTeX, rendues par KaTeX (chargé dans `footer-scripts.html`, seulement sur les pages qui en contiennent) : `$$…$$` dans une phrase = formule en ligne, `$$…$$` seul sur sa ligne = formule centrée. Virgule décimale : `42{,}3` ; unités : `\ \text{mm}`.
 - Encadré : `{% include message.html status="is-warning" title="Attention" message="..." %}` (`is-info`, `is-success`, `is-warning`, `is-danger`).
 - Images : dans un sous-dossier du même nom que la page, noms en kebab-case descriptifs.
 - Texte et image côte à côte, dans un encadré doré (style de la description) : `<div class="box doc-meta bloc-image" markdown="1">`, puis `<div class="bloc-image-texte" markdown="1">` (texte Markdown), puis `<figure class="bloc-image-media" markdown="0"><img …></figure>`. Le `markdown="0"` est indispensable, sinon kramdown met l'image dans un `<p>` et la mise en page casse. Sur mobile, l'image passe sous le texte.
+- Plusieurs images côte à côte (sans texte), cadres de même hauteur : `<div class="images-cote" markdown="0">` puis les `<img …>` à la suite. Sur mobile, elles s'empilent.
 
 ## Thème
 

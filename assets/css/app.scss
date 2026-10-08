@@ -892,3 +892,25 @@ $chrono-trait: 1.5rem; // longueur du trait entre l'axe et le texte
         }
     }
 }
+
+// ─── Images côte à côte (sans texte) ──────────────────────────────────────
+// Usage dans le Markdown : <div class="images-cote" markdown="0"> <img …> <img …> </div>
+.content .images-cote {
+    display: flex;
+    align-items: stretch; // cadres de même hauteur
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+
+    img {
+        flex: 1 1 0;
+        min-width: 0;
+        width: 100%;
+        max-height: none;
+        object-fit: contain; // l'image garde ses proportions dans son cadre
+        margin: 0;
+    }
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
+}
